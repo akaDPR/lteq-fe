@@ -30,7 +30,8 @@ export default {
   },
 
   methods: {
-    dateFilter(selectedDate) {
+    async dateFilter(selectedDate) {
+      await this.collectAll();
       this.books = this.books.filter(
         el =>
           new Date(el.publishDate).setHours(0, 0, 0, 0) ===
