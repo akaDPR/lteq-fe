@@ -37,8 +37,9 @@ export default {
           new Date(selectedDate).setHours(0, 0, 0, 0)
       );
     },
-    searchTitle(title) {
+    async searchTitle(title) {
       if (!title.length) return;
+      await this.collectAll();
       this.books = this.books.filter(el =>
         el.title.toLowerCase().includes(title.toLowerCase())
       );
